@@ -5,8 +5,14 @@ class SongsController < ApplicationController
   end
 
   get '/songs/new' do
-
     erb :'songs/new'
+  end
+
+  post '/songs' do
+    @artist = Artist.find_or_create_by(name: params["Artist Name"])
+    @song = Song.create(name: params["Name"], artist: @artist)
+    @song.genre_ids = params[:genres]
+    @song.save
   end
 
   get '/songs/:slug' do
