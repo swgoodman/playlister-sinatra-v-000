@@ -13,6 +13,8 @@ class SongsController < ApplicationController
     @song = Song.create(name: params["Name"], artist: @artist)
     @song.genre_ids = params[:genres]
     @song.save
+
+    redirect to "songs/#{@song.slug}"
   end
 
   get '/songs/:slug' do
