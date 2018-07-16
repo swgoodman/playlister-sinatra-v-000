@@ -14,10 +14,6 @@ class SongsController < ApplicationController
     erb :'songs/show'
   end
 
-  post '/songs' do
-
-  end
-
   get '/songs/:slug/edit' do
     erb :'songs/edit'
   end
